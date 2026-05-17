@@ -1,0 +1,89 @@
+.header {
+  height: 70px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LEFT SIDE */
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1cb9c8;
+  text-transform: lowercase;
+}
+
+/* NAV */
+
+.nav {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-item {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-item:hover {
+  color: #1cb9c8;
+}
+
+/* OFFER badge */
+
+.offer {
+  background: orange;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+/* RIGHT SIDE */
+
+.header-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.register {
+  border: 1px solid #1cb9c8;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #1cb9c8;
+  cursor: pointer;
+}
+
+.register:hover {
+  background: #1cb9c8;
+  color: white;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .header {
+    padding: 0 20px;
+  }
+}

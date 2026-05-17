@@ -1,0 +1,381 @@
+/* --- 1. GLOBAL & THEME VARIABLES --- */
+:root {
+  --primary-blue: #008BDC;
+  --text-dark: #333;
+  --text-gray: #666;
+  --border-color: #e0e0e0;
+  --bg-light: #f8f8f8;
+  --offer-orange: #FF9900;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-light);
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* --- 2. NAVBAR STYLING --- */
+.navbar {
+  height: 65px;
+  background: #fff;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 800;
+  color: var(--primary-blue);
+  font-size: 20px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-links li {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.offer-badge {
+  background: var(--offer-orange);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  margin-left: 6px;
+}
+
+.arrow {
+  font-size: 10px;
+  margin-left: 5px;
+  color: #999;
+}
+
+/* --- 3. MAIN CONTENT LAYOUT --- */
+.main-wrapper {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.breadcrumbs {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-bottom: 15px;
+}
+
+.main-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: var(--text-gray);
+  font-size: 15px;
+}
+
+.content-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* --- 4. FILTER SIDEBAR --- */
+.filter-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.alert-box {
+  background: white;
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  border-radius: 8px;
+  color: var(--primary-blue);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.filter-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.filter-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.input-field {
+  margin-bottom: 20px;
+}
+
+.input-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+}
+
+.checkbox-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.checkbox-group input {
+  margin-right: 10px;
+  accent-color: var(--primary-blue);
+}
+
+.stipend-filter {
+  margin-top: 30px;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #999;
+  margin-top: 8px;
+}
+
+.view-more {
+  color: var(--primary-blue);
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* --- 5. INTERNSHIP CARDS --- */
+.cards-list {
+  flex: 1;
+}
+
+.internship-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.2s;
+}
+
+.internship-card:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-area h3 {
+  font-size: 18px;
+  color: #121212;
+  margin-bottom: 5px;
+}
+
+.company-name {
+  color: var(--text-gray);
+  font-size: 14px;
+}
+
+.company-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.status-tag {
+  display: inline-block;
+  background: #E8F5FF;
+  color: var(--primary-blue);
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.card-details {
+  display: flex;
+  gap: 30px;
+  margin: 25px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.card-footer {
+  border-top: 1px solid #f2f2f2;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tags span {
+  background: #f1f1f1;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-right: 10px;
+  color: #555;
+}
+
+.posted-on {
+  font-size: 12px;
+  color: #2ecc71;
+  font-weight: 600;
+}
+
+/* --- 6. DARK FOOTER (FROM SCREENSHOTS) --- */
+.footer-wrapper {
+  width: 100%;
+  margin-top: 60px;
+}
+
+.courses-links-section {
+  background-color: #fff;
+  padding: 40px 10%;
+  border-top: 1px solid #eee;
+}
+
+.course-row h4 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.link-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.link-items span {
+  border-right: 1px solid #ddd;
+  padding-right: 12px;
+  cursor: pointer;
+}
+
+.view-all {
+  color: var(--primary-blue) !important;
+  font-weight: 600;
+  border-right: none !important;
+}
+
+.dark-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 60px 10% 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-col a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.footer-col a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid #555;
+  padding-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.store-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.copyright-text {
+  font-size: 13px;
+  color: #bbb;
+}
