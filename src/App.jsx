@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import './App.css';
-import Footer from './components/Footer';
+import React, { useState } from "react";
+import "./App.css";
+import Footer from "./components/Footer";
 
 const internshipData = [
   {
@@ -8,57 +8,71 @@ const internshipData = [
     title: "Fundraising",
     company: "InAmigos Foundation",
     location: "Work from home",
-    stipend: "₹ 4,500 - 6,500 /month",
+    stipend: "₹ 4,500 /month",
     duration: "2 Weeks",
     posted: "2 days ago",
-    tags: ["Creative Writing", "English Proficiency (Written)"],
-    logo: "https://via.placeholder.com/50",
+    tags: ["Creative Writing", "English Proficiency"],
+    logo: "https://via.placeholder.com/60",
   },
+
   {
     id: 2,
-    title: "Business Development (Sales)",
+    title: "Business Development",
     company: "Ensar Solutions",
     location: "Delhi",
-    stipend: "₹ 5,000 - 7,500 /month",
+    stipend: "₹ 6,000 /month",
     duration: "2 Months",
     posted: "3 days ago",
-    tags: ["Client Interaction", "Sales Management", "Business Development"],
-    logo: "https://via.placeholder.com/50",
+    tags: ["Sales", "Marketing"],
+    logo: "https://via.placeholder.com/60",
   },
+
   {
     id: 3,
     title: "React Developer",
-    company: "Tech Solutions",
+    company: "Tech World",
     location: "Work from home",
-    stipend: "₹ 8,000 /month",
+    stipend: "₹ 10,000 /month",
     duration: "6 Months",
     posted: "1 day ago",
     tags: ["React", "JavaScript", "Frontend"],
-    logo: "https://via.placeholder.com/50",
-  }
+    logo: "https://via.placeholder.com/60",
+  },
+
+  {
+    id: 4,
+    title: "UI UX Designer",
+    company: "Creative Studio",
+    location: "Mumbai",
+    stipend: "₹ 8,000 /month",
+    duration: "3 Months",
+    posted: "5 days ago",
+    tags: ["Figma", "UI Design"],
+    logo: "https://via.placeholder.com/60",
+  },
 ];
 
 function App() {
-
-  const [stipend, setStipend] = useState(0);
   const [profile, setProfile] = useState("");
   const [location, setLocation] = useState("");
+  const [stipend, setStipend] = useState(0);
   const [workFromHome, setWorkFromHome] = useState(false);
 
   // FILTER LOGIC
   const filteredData = internshipData.filter((item) => {
+    const matchesProfile = item.title
+      .toLowerCase()
+      .includes(profile.toLowerCase());
 
-    const matchesProfile =
-      item.title.toLowerCase().includes(profile.toLowerCase());
-
-    const matchesLocation =
-      item.location.toLowerCase().includes(location.toLowerCase());
+    const matchesLocation = item.location
+      .toLowerCase()
+      .includes(location.toLowerCase());
 
     const matchesWFH =
       !workFromHome || item.location === "Work from home";
 
     const stipendValue = parseInt(
-      item.stipend.replace(/[₹,]/g, "").split(" ")[0]
+      item.stipend.replace(/[₹,]/g, "")
     );
 
     const matchesStipend =
@@ -72,22 +86,38 @@ function App() {
     );
   });
 
+  // CLEAR FILTERS
+  const clearFilters = () => {
+    setProfile("");
+    setLocation("");
+    setStipend(0);
+    setWorkFromHome(false);
+  };
+
   return (
     <div className="internshala-clone">
 
       {/* NAVBAR */}
       <nav className="navbar">
         <div className="nav-container">
-          <div className="logo">INTERNSHALA</div>
+
+          <div className="logo">
+            INTERNSHALA
+          </div>
 
           <ul className="nav-links">
             <li>Internships ▼</li>
+
             <li>
               Courses
-              <span className="offer-badge">OFFER</span>
+              <span className="offer-badge">
+                OFFER
+              </span>
               ▼
             </li>
+
             <li>Jobs ▼</li>
+
             <li className="login-btn">
               Login / Register ▼
             </li>
@@ -99,8 +129,9 @@ function App() {
 
         {/* HEADER */}
         <div className="page-header">
+
           <p className="breadcrumbs">
-            Home &gt; Internships &gt; WFH Internships
+            Home &gt; Internships &gt; Work From Home
           </p>
 
           <h1 className="main-title">
@@ -108,7 +139,7 @@ function App() {
           </h1>
 
           <p className="subtitle">
-            Latest Work From Home Internships for Students
+            Latest internships for students
           </p>
         </div>
 
@@ -135,7 +166,9 @@ function App() {
                   type="text"
                   placeholder="e.g. React"
                   value={profile}
-                  onChange={(e) => setProfile(e.target.value)}
+                  onChange={(e) =>
+                    setProfile(e.target.value)
+                  }
                 />
               </div>
 
@@ -147,11 +180,13 @@ function App() {
                   type="text"
                   placeholder="e.g. Delhi"
                   value={location}
-                  onChange={(e) => setLocation(e.target.value)}
+                  onChange={(e) =>
+                    setLocation(e.target.value)
+                  }
                 />
               </div>
 
-              {/* CHECKBOXES */}
+              {/* CHECKBOX */}
               <div className="checkbox-group">
 
                 <label>
@@ -159,24 +194,22 @@ function App() {
                     type="checkbox"
                     checked={workFromHome}
                     onChange={(e) =>
-                      setWorkFromHome(e.target.checked)
+                      setWorkFromHome(
+                        e.target.checked
+                      )
                     }
                   />
-                  Work from home
-                </label>
 
-                <label>
-                  <input type="checkbox" />
-                  Part-time
+                  Work from home
                 </label>
 
               </div>
 
-              {/* STIPEND FILTER */}
+              {/* STIPEND */}
               <div className="stipend-filter">
 
                 <label>
-                  Desired minimum monthly stipend (₹)
+                  Desired minimum monthly stipend
                 </label>
 
                 <input
@@ -199,18 +232,21 @@ function App() {
                   <span>10K</span>
                 </div>
 
-                <p className="selected-stipend">
+                <p>
                   Selected: ₹ {stipend}K
                 </p>
 
               </div>
 
-              <div className="view-more">
-                View more filters ▼
-              </div>
+              {/* CLEAR BUTTON */}
+              <button
+                className="clear-btn"
+                onClick={clearFilters}
+              >
+                Clear All
+              </button>
 
             </div>
-
           </aside>
 
           {/* INTERNSHIP LIST */}
@@ -228,11 +264,13 @@ function App() {
                   <div className="card-header">
 
                     <div className="title-area">
+
                       <h3>{item.title}</h3>
 
                       <p className="company-name">
                         {item.company}
                       </p>
+
                     </div>
 
                     <img
@@ -257,22 +295,18 @@ function App() {
 
                   </div>
 
-                  <div className="card-footer">
+                  <div className="tags">
 
-                    <div className="tags">
+                    {item.tags.map((tag) => (
+                      <span key={tag}>
+                        {tag}
+                      </span>
+                    ))}
 
-                      {item.tags.map((tag) => (
-                        <span key={tag}>
-                          {tag}
-                        </span>
-                      ))}
+                  </div>
 
-                    </div>
-
-                    <div className="posted-on">
-                      🕒 {item.posted}
-                    </div>
-
+                  <div className="posted-on">
+                    🕒 {item.posted}
                   </div>
 
                 </div>
@@ -291,9 +325,7 @@ function App() {
         </div>
       </div>
 
-      {/* FOOTER */}
       <Footer />
-
     </div>
   );
 }
